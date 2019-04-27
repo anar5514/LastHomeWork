@@ -5,8 +5,96 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_23._04HomeWork"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="300" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <TabControl>
+            <TabItem Header="Grammar">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <StackPanel Grid.Column="0" Grid.Row="0">
+                        <Label Height="25" Width="120" Content="Başlanğıc saatı" Margin="0,15,0,0" Padding="3"/>
+                        <Label Height="25" Margin="0,5,0,0" Width="120" Content="Müəllim" Padding="3"/>
+                        <Label Height="25" Margin="0,5,0,0" Width="120" Content="Xidmət növü" Padding="3"/>
+                        <Label Height="25" Margin="0,5,0,0" Width="120" Content="Səviyyə" Padding="3"/>
+                        <Label Height="25" Margin="0,5,0,0" Width="120" Content="Qrup" Padding="3"/>
+                        <Label Height="25" Margin="0,5,0,0" Width="120" Content="Bitmə vaxtı" Padding="3"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Grid.Row="0">
+                        <Label Height="25" Width="120" Content="04/23/2019 09:30" Padding="0,0,0,0" Margin="0,20,0,0"/>
+                        <ComboBox Height="25" Width="120" Margin="-15,0,0,0"/>
+                        <ComboBox Height="25" Width="120" Margin="-15,5,0,0"/>
+                        <ComboBox Height="25" Width="120" Margin="-15,5,0,0"/>
+                        <ComboBox Height="25" Width="120" Margin="-15,5,0,0"/>
+                        <ComboBox Height="25" Width="120" Margin="-15,5,0,0"/>
+                    </StackPanel>
+
+                    <Grid Grid.ColumnSpan="2" Grid.Row="1">
+                        <StackPanel>
+                            <ListBox Height="120" Width="250" Margin="0,10,0,0">
+                                <ListBoxItem Content="Ad" HorizontalContentAlignment="Center"/>
+                                <ScrollBar/>
+                            </ListBox>
+                        </StackPanel>
+
+                        <TextBox Height="30" Width="100" Margin="-150,130,0,0"/>
+                        <Button Height="30" Width="120" Margin="120,130,0,0" Content="Əlavə et"/>
+                    </Grid>
+                    
+                </Grid>
+            </TabItem>
+            <TabItem Header="Speaking">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="220"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Grid.Row="0">
+                        <Label Height="25" Width="120" Content="Başlanğıc saatı" Margin="0,15,0,0" Padding="3"/>
+                        <Label Height="25" Margin="0,5,0,0" Width="120" Content="Müəllim" Padding="3"/>
+                        <Label Height="25" Margin="0,5,0,0" Width="120" Content="Xidmət növü" Padding="3"/>
+                        <Label Height="25" Margin="0,5,0,0" Width="120" Content="Səviyyə" Padding="3"/>
+                        <Label Height="25" Margin="0,5,0,0" Width="120" Content="Tələbə" Padding="3"/>
+                        <Label Height="25" Margin="0,5,0,0" Width="120" Content="Bitmə vaxtı" Padding="3"/>
+                        <CheckBox Content=" Mock exam" Width="120" Height="20" Margin="0,10,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Grid.Row="0">
+                        <Label Height="25" Width="120" Content="04/23/2019 09:30" Padding="0,0,0,0" Margin="0,20,0,0"/>
+                        <ComboBox Height="25" Width="120" Margin="-15,0,0,0"/>
+                        <ComboBox Height="25" Width="120" Margin="-15,5,0,0"/>
+                        <ComboBox Height="25" Width="120" Margin="-15,5,0,0"/>
+                        <ComboBox Height="25" Width="120" Margin="-15,5,0,0"/>
+                        <ComboBox Height="25" Width="120" Margin="-15,5,0,0"/>
+                    </StackPanel>
+
+                    <Grid Grid.ColumnSpan="2" Grid.Row="1">
+                        <StackPanel>
+                            <ListBox Height="100" Width="250" Margin="0,10,0,0">
+                                <ListBoxItem Content="Ad" HorizontalContentAlignment="Center"/>
+                                <ScrollBar/>
+                            </ListBox>
+                        </StackPanel>
+
+                        <TextBox Height="30" Width="100" Margin="-150,130,0,0"/>
+                        <Button Height="30" Width="120" Margin="120,130,0,0" Content="Əlavə et"/>
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
