@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _23._04HomeWork.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,16 +13,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace _23._04HomeWork
+namespace _23._04HomeWork.Views
 {
     /// <summary>
-    /// Interaction logic for Groups.xaml
+    /// Interaction logic for StudentView.xaml
     /// </summary>
-    public partial class Groups : Window
+    public partial class StudentView : Window
     {
-        public Groups()
+        public StudentViewModel StudentViewModel { get; set; }
+
+        public StudentView(StudentViewModel StudentViewModel)
         {
             InitializeComponent();
+
+            this.StudentViewModel = StudentViewModel;
+
+            DataContext = StudentViewModel;
         }
     }
 }
