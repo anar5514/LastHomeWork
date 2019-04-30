@@ -1,4 +1,5 @@
-﻿using _23._04HomeWork.Entities;
+﻿using _23._04HomeWork.Commands;
+using _23._04HomeWork.Entities;
 using _23._04HomeWork.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -31,20 +32,6 @@ namespace _23._04HomeWork
 
             DataContext = GroupVM;
         }
-
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            Group group = new Group()
-            {
-                Name = "1814_az",
-                Level = "Beginner",
-                Branch = "Nerimanov",
-                Note = "Hello world !",
-                Subject = "General English"
-            };
-
-            GroupVM.AllGroups.Add(group);
-            GroupVM.AddGroupCommand.Execute(5);
-        }
+        
     }
 }

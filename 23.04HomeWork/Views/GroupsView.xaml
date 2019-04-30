@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_23._04HomeWork"
         mc:Ignorable="d"
-        Title="GroupsView" Height="500" Width="1000">
+        Title="GroupsView" Height="500" Width="1050">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="110"/>
@@ -17,7 +17,7 @@
             <TextBox Width="200" VerticalAlignment="Center"/>
             <Label Content="Filial:" Margin="100,0,0,0" Width="100" HorizontalContentAlignment="Right"/>
             <TextBox Width="200" VerticalAlignment="Center"/>
-            <Button Name="btnAdd" Content="Əlavə et" Width="100" VerticalAlignment="Center" Margin="90,0,0,0" Click="btnAdd_Click"/>
+            <Button Command="{Binding AddGroupCommand}" Name="btnAdd" Content="Əlavə et" Width="100" VerticalAlignment="Center" Margin="90,0,0,0"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="0" Height="45" Background="DarkGray" VerticalAlignment="Center">
@@ -34,14 +34,14 @@
             <Button Name="btnCancel" Content="İmtina" Width="100" VerticalAlignment="Center" Margin="490,0,0,0"/>
         </WrapPanel>
 
-        <ListView Grid.Row="1">
+        <ListView ItemsSource="{Binding AllGroups}" Grid.Row="1">
             <ListView.View>
                 <GridView>
                     
                     <GridViewColumn Header="No" Width="50">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Id}"/>
+                                <TextBlock Text="{Binding Id}" Width="50"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
