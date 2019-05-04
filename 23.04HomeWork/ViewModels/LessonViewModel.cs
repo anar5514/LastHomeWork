@@ -2,6 +2,7 @@
 using _23._04HomeWork.Entities;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +13,11 @@ namespace _23._04HomeWork.ViewModels
     {
         public AddLessonCommand AddLessonCommand => new AddLessonCommand(this);
 
-        private List<Lesson> lessons;
+        private ObservableCollection<Lesson> lessons;
 
         public Lesson CurrentLesson { get; set; }
 
-        public List<Lesson> Lessons
+        public ObservableCollection<Lesson> Lessons
         {
             get
             {

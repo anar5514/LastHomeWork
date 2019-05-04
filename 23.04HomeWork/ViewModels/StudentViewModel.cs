@@ -2,6 +2,7 @@
 using _23._04HomeWork.Entities;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +13,11 @@ namespace _23._04HomeWork.ViewModels
     {
         public AddStudentCommand AddStudentCommand => new AddStudentCommand(this);
 
-        private List<Student> students;
+        private ObservableCollection<Student> students;
 
         public Student CurrentStudent { get; set; }
 
-        public List<Student> Students
+        public ObservableCollection<Student> Students
         {
             get
             {

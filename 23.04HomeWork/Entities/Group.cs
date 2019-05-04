@@ -14,5 +14,6 @@ namespace _23._04HomeWork.Entities
         public string Branch { get; set; }
         public string Note { get; set; }
         public string Subject { get; set; }
+        public string KindOfService { get; set; }
     }
 }

@@ -57,6 +57,9 @@
     <Compile Include="Commands\AddGroupCommand.cs" />
     <Compile Include="Commands\AddLessonCommand.cs" />
     <Compile Include="Commands\AddStudentCommand.cs" />
+    <Compile Include="Entities\Branch.cs" />
+    <Compile Include="Entities\Level.cs" />
+    <Compile Include="Entities\Subject.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Views\LessonView.xaml.cs">
       <DependentUpon>LessonView.xaml</DependentUpon>

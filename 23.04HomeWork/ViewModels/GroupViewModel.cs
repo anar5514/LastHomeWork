@@ -13,11 +13,17 @@ namespace _23._04HomeWork.ViewModels
     {
         public AddGroupCommand AddGroupCommand => new AddGroupCommand(this);
 
-        private List<Group> allGroups;
+        private ObservableCollection<Group> allGroups;
 
         public Group CurrentGroup { get; set; }
 
-        public List<Group> AllGroups
+        public List<Subject> Subjects { get; set; }
+
+        public List<Level> Levels { get; set; }
+
+        public List<Branch> Branches { get; set; }
+
+        public ObservableCollection<Group> AllGroups
         {
             get
             {

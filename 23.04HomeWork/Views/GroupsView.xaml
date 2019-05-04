@@ -14,24 +14,26 @@
 
         <WrapPanel Grid.Row="0" Height="35" VerticalAlignment="Top" Background="DarkGray">
             <Label Content="Qrup adı:" Margin="100,0,0,0" Width="100" HorizontalContentAlignment="Right"/>
-            <TextBox Width="200" VerticalAlignment="Center"/>
+            <TextBox Name="txtboxName" Text="{Binding CurrentGroup.Name , Mode=TwoWay}" Width="200" VerticalAlignment="Center"/>
             <Label Content="Filial:" Margin="100,0,0,0" Width="100" HorizontalContentAlignment="Right"/>
-            <TextBox Width="200" VerticalAlignment="Center"/>
+            <ComboBox Name="txtboxBranch" Width="200" VerticalAlignment="Center" ItemsSource="{Binding Branches}" DisplayMemberPath="Name" SelectedItem="{Binding CurrentGroup.Branches}"/>
             <Button Command="{Binding AddGroupCommand}" Name="btnAdd" Content="Əlavə et" Width="100" VerticalAlignment="Center" Margin="90,0,0,0"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="0" Height="45" Background="DarkGray" VerticalAlignment="Center">
             <Label Content="Xidmət növü:" Margin="100,0,0,0" Width="100" HorizontalContentAlignment="Right"/>
-            <TextBox Width="200" VerticalAlignment="Center"/>
-            <Label Content="Qeyd:" Margin="100,0,0,0" Width="100" HorizontalContentAlignment="Right"/>
-            <TextBox Width="200" VerticalAlignment="Center" Height="40"/>
+            <TextBox Name="txtboxKindOfService" Text="{Binding CurrentGroup.KindOfService , Mode=TwoWay}" Width="200" VerticalAlignment="Center"/>
+            <Label Content="Fənn:" Margin="100,0,0,0" Width="100" HorizontalContentAlignment="Right"/>
+            <ComboBox ItemsSource="{Binding Subjects}" DisplayMemberPath="Name" Width="200" VerticalAlignment="Center" SelectedValue="{Binding CurrentGroup.Subjects}" SelectedValuePath="Name"/>
             <Button Name="btnChange" Content="Dəyişdir" Width="100" VerticalAlignment="Center" Margin="90,0,0,0"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="0" Height="45" Background="DarkGray" Margin="0,0,0,0" VerticalAlignment="Bottom">
             <Label Content="Səviyyə:" Margin="100,0,0,0" Width="100" HorizontalContentAlignment="Right"/>
-            <TextBox Width="200" VerticalAlignment="Center"/>
-            <Button Name="btnCancel" Content="İmtina" Width="100" VerticalAlignment="Center" Margin="490,0,0,0"/>
+            <ComboBox Width="200" VerticalAlignment="Center" ItemsSource="{Binding Levels}" DisplayMemberPath="LevelName" SelectedValue="{Binding CurrentGroup.Levels}" SelectedValuePath="LevelName"/>
+            <Label Content="Qeyd:" Width="100" HorizontalContentAlignment="Right" Margin="100,0,0,0"/>
+            <TextBox Text="{Binding CurrentGroup.Note , Mode=TwoWay}" Width="200" VerticalAlignment="Center" Height="40"/>
+            <Button Name="btnCancel" Content="İmtina" Width="100" VerticalAlignment="Center" Margin="90,0,0,0"/>
         </WrapPanel>
 
         <ListView ItemsSource="{Binding AllGroups}" Grid.Row="1">
@@ -41,7 +43,7 @@
                     <GridViewColumn Header="No" Width="50">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Id}" Width="50"/>
+                                <TextBlock Text="{Binding Id}" Width="50" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -49,7 +51,7 @@
                     <GridViewColumn Header="Qrup adı" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Text="{Binding Name}" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -57,7 +59,7 @@
                     <GridViewColumn Header="Fənn" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Subject}"/>
+                                <TextBlock Text="{Binding Subject}" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -65,7 +67,7 @@
                     <GridViewColumn Header="Səviyyə" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Level}"/>
+                                <TextBlock Text="{Binding Level}" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -73,7 +75,7 @@
                     <GridViewColumn Header="Filial" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Branch}"/>
+                                <TextBlock Text="{Binding Branch}" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -81,11 +83,19 @@
                     <GridViewColumn Header="Qeyd" Width="180">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Note}"/>
+                                <TextBlock Text="{Binding Note}" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    
+
+                    <GridViewColumn Header="Xidmət növü" Width="180">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding KindOfService}" TextAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
                 </GridView>
             </ListView.View>
         </ListView>

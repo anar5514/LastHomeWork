@@ -14,7 +14,7 @@ namespace _23._04HomeWork.Commands
     {
         public event EventHandler CanExecuteChanged;
 
-        public GroupViewModel GroupViewModel { get; set; }     
+        public GroupViewModel GroupViewModel { get; set; }
 
         public AddGroupCommand(GroupViewModel GroupViewModel)
         {
@@ -28,40 +28,9 @@ namespace _23._04HomeWork.Commands
 
         public void Execute(object parameter)
         {
-            List<Group> groups = new List<Group>()
-            {
-                new Group()
-                {
-                    Id = 0,
-                    Name = "1814_az",
-                    Level = "Beginner",
-                    Branch = "Nerimanov",
-                    Note = "Hello world !",
-                    Subject = "General English"
-                },
-                
-                new Group()
-                {
-                    Id = 1,
-                    Name = "1814_az",
-                    Level = "Beginner",
-                    Branch = "Nerimanov",
-                    Note = "Hello world !",
-                    Subject = "General English"
-                },
-
-                new Group()
-                {
-                    Id = 2,
-                    Name = "1814_az",
-                    Level = "Beginner",
-                    Branch = "Nerimanov",
-                    Note = "Hello world !",
-                    Subject = "General English"
-                }
-            };
+            GroupViewModel.AllGroups = new ObservableCollection<Group>();
+            GroupViewModel.AllGroups.Add(GroupViewModel.CurrentGroup);
             
-            GroupViewModel.AllGroups = groups;
 
         }
     }
