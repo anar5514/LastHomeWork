@@ -15,7 +15,22 @@ namespace _23._04HomeWork.ViewModels
 
         private ObservableCollection<Group> allGroups;
 
-        public Group CurrentGroup { get; set; }
+        private Group currentGroup;
+
+        public Group CurrentGroup {
+
+            get
+            {
+                return currentGroup;
+            }
+
+            set
+            {
+                currentGroup = value;
+                OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs(nameof(CurrentGroup)));
+            }
+                
+        }
 
         public List<Subject> Subjects { get; set; }
 
@@ -32,7 +47,7 @@ namespace _23._04HomeWork.ViewModels
             set
             {
                 allGroups = value;
-                OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("AllGroups"));
+                OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs(nameof(AllGroups)));
             }
         }
 

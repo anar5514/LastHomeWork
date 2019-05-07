@@ -19,6 +19,8 @@ namespace _23._04HomeWork.Commands
         public AddGroupCommand(GroupViewModel GroupViewModel)
         {
             this.GroupViewModel = GroupViewModel;
+
+            GroupViewModel.AllGroups = new ObservableCollection<Group>();
         }
 
         public bool CanExecute(object parameter)
@@ -28,9 +30,8 @@ namespace _23._04HomeWork.Commands
 
         public void Execute(object parameter)
         {
-            GroupViewModel.AllGroups = new ObservableCollection<Group>();
-            GroupViewModel.AllGroups.Add(GroupViewModel.CurrentGroup);
-            
+            var item = GroupViewModel.CurrentGroup;
+            GroupViewModel.AllGroups.Add(item);        
 
         }
     }

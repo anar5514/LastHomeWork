@@ -1,8 +1,10 @@
 ﻿using _23._04HomeWork.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,7 +33,7 @@ namespace _23._04HomeWork.Views
             GroupViewModel groupViewModel = new GroupViewModel();
 
             groupViewModel.CurrentGroup = new Entities.Group();
-
+            
             Groups groups = new Groups(groupViewModel);
 
             groupViewModel.Subjects = new List<Entities.Subject>()
@@ -46,7 +48,6 @@ namespace _23._04HomeWork.Views
                     Name = "Computer Science"
                 }
             };
-
 
             groupViewModel.Levels = new List<Entities.Level>()
             {

@@ -16,7 +16,12 @@
             <Label Content="Qrup adı:" Margin="100,0,0,0" Width="100" HorizontalContentAlignment="Right"/>
             <TextBox Name="txtboxName" Text="{Binding CurrentGroup.Name , Mode=TwoWay}" Width="200" VerticalAlignment="Center"/>
             <Label Content="Filial:" Margin="100,0,0,0" Width="100" HorizontalContentAlignment="Right"/>
-            <ComboBox Name="txtboxBranch" Width="200" VerticalAlignment="Center" ItemsSource="{Binding Branches}" DisplayMemberPath="Name" SelectedItem="{Binding CurrentGroup.Branches}"/>
+
+            <ComboBox Name="txtboxBranch" Width="200" VerticalAlignment="Center" ItemsSource="{Binding Branches}" DisplayMemberPath="Name" 
+                      SelectedValuePath="Id"
+                      SelectedItem="{Binding CurrentGroup.Branch}"
+                      SelectedValue="{Binding CurrentGroup.Branch.Id, Mode=TwoWay}"/>
+
             <Button Command="{Binding AddGroupCommand}" Name="btnAdd" Content="Əlavə et" Width="100" VerticalAlignment="Center" Margin="90,0,0,0"/>
         </WrapPanel>
 
@@ -24,13 +29,23 @@
             <Label Content="Xidmət növü:" Margin="100,0,0,0" Width="100" HorizontalContentAlignment="Right"/>
             <TextBox Name="txtboxKindOfService" Text="{Binding CurrentGroup.KindOfService , Mode=TwoWay}" Width="200" VerticalAlignment="Center"/>
             <Label Content="Fənn:" Margin="100,0,0,0" Width="100" HorizontalContentAlignment="Right"/>
-            <ComboBox ItemsSource="{Binding Subjects}" DisplayMemberPath="Name" Width="200" VerticalAlignment="Center" SelectedValue="{Binding CurrentGroup.Subjects}" SelectedValuePath="Name"/>
+
+            <ComboBox ItemsSource="{Binding Subjects}" DisplayMemberPath="Name" Width="200" VerticalAlignment="Center" 
+                      SelectedValuePath="Id"
+                      SelectedItem="{Binding CurrentGroup.Subject}"
+                      SelectedValue="{Binding CurrentGroup.KindOfService.Id, Mode=TwoWay}"/>
+
             <Button Name="btnChange" Content="Dəyişdir" Width="100" VerticalAlignment="Center" Margin="90,0,0,0"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="0" Height="45" Background="DarkGray" Margin="0,0,0,0" VerticalAlignment="Bottom">
             <Label Content="Səviyyə:" Margin="100,0,0,0" Width="100" HorizontalContentAlignment="Right"/>
-            <ComboBox Width="200" VerticalAlignment="Center" ItemsSource="{Binding Levels}" DisplayMemberPath="LevelName" SelectedValue="{Binding CurrentGroup.Levels}" SelectedValuePath="LevelName"/>
+
+            <ComboBox Width="200" VerticalAlignment="Center" ItemsSource="{Binding Levels}" 
+                      SelectedValuePath="Id"
+                      SelectedItem="{Binding CurrentGroup.Level}"
+                      SelectedValue="{Binding CurrentGroup.Level.Id, Mode=TwoWay}"/>
+
             <Label Content="Qeyd:" Width="100" HorizontalContentAlignment="Right" Margin="100,0,0,0"/>
             <TextBox Text="{Binding CurrentGroup.Note , Mode=TwoWay}" Width="200" VerticalAlignment="Center" Height="40"/>
             <Button Name="btnCancel" Content="İmtina" Width="100" VerticalAlignment="Center" Margin="90,0,0,0"/>
@@ -59,7 +74,7 @@
                     <GridViewColumn Header="Fənn" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Subject}" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding Subject.Name}" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -67,7 +82,7 @@
                     <GridViewColumn Header="Səviyyə" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Level}" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding Level.LevelName}" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -75,7 +90,7 @@
                     <GridViewColumn Header="Filial" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Branch}" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding Branch.Name}" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
