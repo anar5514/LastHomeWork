@@ -30,6 +30,8 @@ namespace _23._04HomeWork.Commands
 
         public void Execute(object parameter)
         {
+            GroupViewModel.State = 1;
+
             var item = GroupViewModel.CurrentGroup;
             GroupViewModel.AllGroups.Add(item);        
 

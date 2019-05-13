@@ -3,13 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:local="clr-namespace:_23._04HomeWork"
+        
         mc:Ignorable="d"
-        Title="GroupsView" Height="500" Width="1050">
+        Title="GroupsView" Height="600" Width="1050">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="110"/>
-            <RowDefinition Height="850"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="420"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 
         <WrapPanel Grid.Row="0" Height="35" VerticalAlignment="Top" Background="DarkGray">
@@ -22,7 +25,7 @@
                       SelectedItem="{Binding CurrentGroup.Branch}"
                       SelectedValue="{Binding CurrentGroup.Branch.Id, Mode=TwoWay}"/>
 
-            <Button Command="{Binding AddGroupCommand}" Name="btnAdd" Content="Əlavə et" Width="100" VerticalAlignment="Center" Margin="90,0,0,0"/>
+            <Button Command="{Binding AddGroupCommand}" Name="btnAdd" Width="100" VerticalAlignment="Center" Margin="90,0,0,0" Content="Əlavə et"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="0" Height="45" Background="DarkGray" VerticalAlignment="Center">
@@ -33,32 +36,52 @@
             <ComboBox ItemsSource="{Binding Subjects}" DisplayMemberPath="Name" Width="200" VerticalAlignment="Center" 
                       SelectedValuePath="Id"
                       SelectedItem="{Binding CurrentGroup.Subject}"
-                      SelectedValue="{Binding CurrentGroup.KindOfService.Id, Mode=TwoWay}"/>
+                      SelectedValue="{Binding CurrentGroup.Subject.Id, Mode=TwoWay}"/>
 
-            <Button Name="btnChange" Content="Dəyişdir" Width="100" VerticalAlignment="Center" Margin="90,0,0,0"/>
+            <Button Name="btnChange" Width="100" VerticalAlignment="Center" Margin="90,0,0,0" Content="Dəyişdir">
+               
+            </Button>
         </WrapPanel>
 
         <WrapPanel Grid.Row="0" Height="45" Background="DarkGray" Margin="0,0,0,0" VerticalAlignment="Bottom">
             <Label Content="Səviyyə:" Margin="100,0,0,0" Width="100" HorizontalContentAlignment="Right"/>
 
-            <ComboBox Width="200" VerticalAlignment="Center" ItemsSource="{Binding Levels}" 
+            <ComboBox Width="200" VerticalAlignment="Center" ItemsSource="{Binding Levels}" DisplayMemberPath="LevelName" 
                       SelectedValuePath="Id"
                       SelectedItem="{Binding CurrentGroup.Level}"
                       SelectedValue="{Binding CurrentGroup.Level.Id, Mode=TwoWay}"/>
 
             <Label Content="Qeyd:" Width="100" HorizontalContentAlignment="Right" Margin="100,0,0,0"/>
             <TextBox Text="{Binding CurrentGroup.Note , Mode=TwoWay}" Width="200" VerticalAlignment="Center" Height="40"/>
-            <Button Name="btnCancel" Content="İmtina" Width="100" VerticalAlignment="Center" Margin="90,0,0,0"/>
+            <Button Name="btnCancel" Width="100" VerticalAlignment="Center" Margin="90,0,0,0" Command="{Binding RejectGroupCommand}">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Content" Value="Sil"/>
+                        <Setter Property="IsEnabled" Value="False"/>
+
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding State, Mode=TwoWay}" Value="1">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding AsyncState, Mode=TwoWay}" Value="2">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+
+                    </Style>
+                </Button.Style>
+            </Button>
         </WrapPanel>
 
-        <ListView ItemsSource="{Binding AllGroups}" Grid.Row="1">
+        <ListView ItemsSource="{Binding AllGroups}" Grid.Row="1"  SelectedItem="{Binding SelectedItem}" >
             <ListView.View>
                 <GridView>
                     
                     <GridViewColumn Header="No" Width="50">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Id}" Width="50" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding Id}" Width="40" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -66,7 +89,7 @@
                     <GridViewColumn Header="Qrup adı" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Name}" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding Name}" Width="100" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -74,7 +97,7 @@
                     <GridViewColumn Header="Fənn" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Subject.Name}" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding Subject.Name}" Width="100" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -82,7 +105,7 @@
                     <GridViewColumn Header="Səviyyə" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Level.LevelName}" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding Level.LevelName}" Width="100" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -90,7 +113,7 @@
                     <GridViewColumn Header="Filial" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Branch.Name}" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding Branch.Name}" Width="100" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -98,7 +121,7 @@
                     <GridViewColumn Header="Qeyd" Width="180">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Note}" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding Note}" Width="150" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -106,7 +129,7 @@
                     <GridViewColumn Header="Xidmət növü" Width="180">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding KindOfService}" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding KindOfService}" Width="150" TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -115,5 +138,20 @@
             </ListView.View>
         </ListView>
 
+        <WrapPanel Grid.Row="2" Height="40" VerticalAlignment="Top">
+            <Label Content="Axtarış" Height="30" Width="100" FontSize="15" HorizontalContentAlignment="Center"/>
+            
+            <TextBox Height="30" Width="200" Text="{Binding Text,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  x:Name="SearchTxtbx">
+                <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding SearchCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+            </TextBox>
+            
+            <Button Content="Import PDF" Height="40" Width="200" Margin="250,0,0,0" Command="{Binding ImportPDFCommand}" />
+            <Button Content="Import Excel" Height="40" Width="200" Margin="35,0,0,0"  Command="{Binding ImportExcelCommand}" />
+        </WrapPanel>
+        
     </Grid>
 </Window>

@@ -28,12 +28,12 @@ namespace _23._04HomeWork.Views
             InitializeComponent();
         }
 
-        private void BtnStart_Click(object sender, RoutedEventArgs e)
+        private void BtnShowGroup_Click(object sender, RoutedEventArgs e)
         {
             GroupViewModel groupViewModel = new GroupViewModel();
 
             groupViewModel.CurrentGroup = new Entities.Group();
-            
+
             Groups groups = new Groups(groupViewModel);
 
             groupViewModel.Subjects = new List<Entities.Subject>()
@@ -75,7 +75,7 @@ namespace _23._04HomeWork.Views
                 {
                     LevelName = "Advanced"
                 }
-                    
+
             };
 
             groupViewModel.Branches = new List<Entities.Branch>()
@@ -109,9 +109,23 @@ namespace _23._04HomeWork.Views
             groups.ShowDialog();
         }
 
-        private void BtnShowGroup_Click(object sender, RoutedEventArgs e)
+        private void btnShowStudent_Click(object sender, RoutedEventArgs e)
         {
+            StudentViewModel studentVM = new StudentViewModel();
 
+            StudentView studentView = new StudentView(studentVM);
+
+            studentView.ShowDialog();
+
+        }
+
+        private void btnShowLesson_Click(object sender, RoutedEventArgs e)
+        {
+            LessonViewModel lessonVM = new LessonViewModel();
+
+            LessonView lessonView = new LessonView(lessonVM);
+
+            lessonView.ShowDialog();
         }
     }
 }

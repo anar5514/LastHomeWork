@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Name="btnShowStudent" Content="Start" Width="150" Height="50" Click="BtnStart_Click"/>
-        <Button Name="btnShowGroup" Content="Start" Width="150" Height="50" Click="BtnShowGroup_Click"/>
-        <Button Name="btnShow" Content="Start" Width="150" Height="50" Click="BtnStart_Click"/>
+        
+        <Button Name="btnShowGroup" Content="Groups" Width="150" Height="50" Click="BtnShowGroup_Click" Margin="0,0,0,0"/>
+        
     </Grid>
 </Window>

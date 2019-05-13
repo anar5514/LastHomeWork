@@ -7,6 +7,106 @@
         mc:Ignorable="d"
         Title="StudentView" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="1.5*"/>
+        </Grid.RowDefinitions>
+        <WrapPanel>
+            <GroupBox Width="250" Height="150" HorizontalAlignment="Left" Header="Telebe melumati" Background="LightGray">
+                <StackPanel>
+                    <WrapPanel>
+                        <TextBlock Width="70" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Telebe" Margin="10,10,0,0"></TextBlock>
+                        <TextBox Height="30" Width="130"></TextBox>
+                        <TextBlock Width="70" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Telefon" Margin="10,0,0,0"></TextBlock>
+                        <TextBox Height="30" Width="130"></TextBox>
+                        <TextBlock Width="70" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Text="VesiqeNo" Margin="10,0,0,0"></TextBlock>
+                        <TextBox Height="30" Width="130"></TextBox>
+                        <TextBlock Width="70" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Fin" Margin="10,0,0,0"></TextBlock>
+                        <TextBox Height="30" Width="130"></TextBox>
+                    </WrapPanel>
+                </StackPanel>
+
+            </GroupBox>
+            <GroupBox Width="250" Height="150"  Header="Xususi melumat" Margin="30,0,0,0" Background="LightGray">
+
+                <StackPanel>
+                    <WrapPanel>
+                        <TextBlock Width="70" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Istifadeci adi" Margin="10,10,0,0"></TextBlock>
+                        <TextBox Height="30" Width="130"></TextBox>
+                        <TextBlock Width="70" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Qrup" Margin="10,0,0,0"></TextBlock>
+                        <ComboBox Width="130" Height="30"></ComboBox>
+                        <TextBlock Width="70" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Xidmet novu" Margin="10,0,0,0"></TextBlock>
+                        <ComboBox Width="130" Height="30"></ComboBox>
+                    </WrapPanel>
+                </StackPanel>
+            </GroupBox>
+        </WrapPanel>
+        <Button  Content="Testiqle" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button.Style >
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Height"  Value="30"></Setter>
+                    <Setter Property="Width" Value="70"></Setter>
+                    <Setter Property="Grid.Row" Value="1"></Setter>
+                    <Setter Property="Margin" Value="0,0,10,10"></Setter>
+                    <Setter Property="IsEnabled" Value="False"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="IsEnabled" Value="True"></Setter>
+
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+            </Button.Style>
+
+        </Button>
+        <GroupBox Width="520" Height="250" HorizontalAlignment="Left"  Header="Muqavile melumati" Margin="10,0,0,0" Background="LightGray" Grid.Row="1">
+
+            <StackPanel>
+                <WrapPanel>
+
+                    <TextBlock Width="130" Height="30"  Text="Muqavile No" HorizontalAlignment="Left" Margin="100,10,0,0"    ></TextBlock>
+                    <TextBox Width="130" Height="30" ></TextBox>
+                    <TextBlock Width="130" Height="30"  Text="Tarix"  HorizontalAlignment="Left"  Margin="100,0,0,0"  ></TextBlock>
+                    <TextBox Width="130" Height="30" ></TextBox>
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Width="70" Height="30"   Text="Muqavile No" HorizontalAlignment="Left"></TextBlock>
+                    <TextBox Width="70" Height="30" Margin="10,0,0,0"></TextBox>
+                    <TextBlock Width="70" Height="30" Margin="10,0,0,0" Text="Buraxila biler" HorizontalAlignment="Left"></TextBlock>
+                    <TextBox Width="70" Height="30" Margin="10,0,0,0" ></TextBox>
+                    <TextBlock Width="100" Height="30" Margin="10,0,0,0" Text="Bir dersin miqdari" HorizontalAlignment="Left"></TextBlock>
+                    <TextBox Width="70" Height="30" Margin="10,0,0,0" ></TextBox>
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Width="70" Height="30"   Text="Mock" HorizontalAlignment="Left"></TextBlock>
+                    <TextBox Width="70" Height="30" Margin="10,0,0,0" ></TextBox>
+                    <TextBlock Width="70" Height="30" Margin="10,0,0,0"  Text="Buraxila biler" HorizontalAlignment="Left"></TextBlock>
+                    <TextBox Width="70" Height="30" Margin="10,0,0,0"></TextBox>
+                    <TextBlock Width="100" Height="30" Margin="10,0,0,0"  Text="Bir dersin miqdari" HorizontalAlignment="Left"></TextBlock>
+                    <TextBox Width="70" Height="30" Margin="10,0,0,0" ></TextBox>
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Width="70" Height="30"  Text="Speaking" HorizontalAlignment="Left"></TextBlock>
+                    <TextBox Width="70" Height="30" Margin="10,0,0,0"></TextBox>
+                    <TextBlock Width="70" Height="30" Margin="10,0,0,0" Text="Buraxila biler" HorizontalAlignment="Left"></TextBlock>
+                    <TextBox Width="70" Height="30" Margin="10,0,0,0"></TextBox>
+                    <TextBlock Width="100" Height="30" Margin="10,0,0,0" Text="Bir dersin miqdari" HorizontalAlignment="Left"></TextBlock>
+                    <TextBox Width="70" Height="30" Margin="10,0,0,0" ></TextBox>
+                </WrapPanel>
+                <WrapPanel>
+
+                    <TextBlock Width="70" Height="30"  Text="Guzest" Margin="40,0,0,0"></TextBlock>
+                    <TextBox Width="80" Height="30" ></TextBox>
+                    <TextBlock Width="90" Height="30"  Text="Xidmet haqqi" Margin="10,0,0,0"></TextBlock>
+                    <TextBox Width="80" Height="30" ></TextBox>
+                </WrapPanel>
+
+
+            </StackPanel>
+
+
+
+        </GroupBox>
     </Grid>
 </Window>
